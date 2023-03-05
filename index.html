@@ -280,10 +280,151 @@ class: center, middle, inverseold
 
 class: center, middle, inverse
 
-# What's this<br/>  Vox Pupuli thingy?
+# What is<br/> Puppet?
 
 ???
 
+
+---
+
+.left-column[
+## Puppet
+### What?
+]
+
+.right-column[
+* Infrastructure as Code (IaC) Software
+
+]
+<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
+.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
+
+???
+
+---
+count: false
+.left-column[
+## Puppet
+### What?
+]
+
+.right-column[
+* Infrastructure as Code (IaC) Software
+
+* Brings its own declarative Language, Puppet DSL
+
+]
+<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
+.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
+
+???
+
+* Alternatives like Salt/Ansible don't, they are mostly YAML
+---
+count: false
+.left-column[
+## Puppet
+### What?
+]
+
+.right-column[
+* Infrastructure as Code (IaC) Software
+
+* Brings its own declarative Language, Puppet DSL
+
+* Invented/Owned by Puppet Inc (acquired by Perforce)
+
+]
+<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
+.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
+
+???
+
+---
+count: false
+.left-column[
+## Puppet
+### What?
+]
+
+.right-column[
+* Infrastructure as Code (IaC) Software
+
+* Brings its own declarative Language, Puppet DSL
+
+* Invented/Owned by Puppet Inc (acquired by Perforce)
+
+* Apache 2 license (with CLA)
+
+]
+<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
+.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
+
+???
+
+---
+.left-column[
+## Puppet
+### What?
+### How?
+]
+
+.right-column[
+example class to manage nginx:
+```puppet
+class nginx {
+  package { 'nginx':
+    ensure => 'installed',
+  }
+  -> file { '/etc/nginx/nginx.conf':
+    ensure => 'file',
+    content => $content,
+  }
+  ~> service { 'nginx':
+    ensure => 'running',
+    enable => true,
+  }
+}
+```
+
+]
+<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
+.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
+
+???
+* example class of three resources. A resources describes one specific thing on a system
+
+.left-column[
+## Puppet
+### What?
+### How?
+]
+
+.right-column[
+* one or multiple classes are organised in a Puppet Module
+
+  * glorified .tar.gz archive
+
+* similar to a Ruby gem or Python Package
+
+* Usually each Puppet Modules lives in its own Git(Hub) repository
+
+* A module is focussed on managing a specific software component
+```
+
+]
+<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
+.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
+
+???
+
+* grouping resources based on software component makes modules exchangeable!
+---
+class: center, middle, inverse
+
+# What's this<br/>  Vox Pupuli thingy?
+
+???
 
 ---
 
