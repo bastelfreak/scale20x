@@ -953,10 +953,240 @@ count: false
 * people love to work in such an environment, it enables people
 
 ---
-unify codestyles, styleguide
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* Style guide and coding best practices are important!
+]
+
+???
+
+* what else do people love about vox pupuli? Our styleguide
+
+* We are distributed around the world
+* From the beginning, we were in different timezones and people with different backgrounds
 
 ---
 
+count: false
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* Style guide and coding best practices are important!
+
+  * Write down every discussion about it, document it!
+]
+
+???
+
+* Often it's possible to implement something in different ways
+* Or to format the code in different ways
+* we notice this during code reviews, we use PRs for every change/contribution
+* if something is unclear, we talk about it and document it afterwards
+---
+
+count: false
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* Style guide and coding best practices are important!
+
+  * Write down every discussion about it, document it!
+
+  * It's okay to update a style guide or revert a decission
+]
+
+???
+
+* This is a living document. new collaborators should read it. those people are awesome to spot (my) spelling issues, enhancements, stuff that doesnt make sense
+* review it for each new puppet version
+---
+
+count: false
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* Style guide and coding best practices are important!
+
+  * Write down every discussion about it, document it!
+
+  * It's okay to update a style guide or revert a decission
+
+* Our styleguide: [voxpupuli.org/docs/reviewing_pr](https://voxpupuli.org/docs/reviewing_pr/)
+]
+
+???
+
+* If you've a development team within your company, I recommend following this pattern
+* Write down your guidelines, publish them on the internet, interact with others
+---
+
+count: false
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* Style guide and coding best practices are important!
+
+  * Write down every discussion about it, document it!
+
+  * It's okay to update a style guide or revert a decission
+
+* Our styleguide: [voxpupuli.org/docs/reviewing_pr](https://voxpupuli.org/docs/reviewing_pr/)
+
+* Over time our guidelines got adopted by many companies and Puppet itself
+
+  * It's the defacto standard for the Puppet language
+]
+
+???
+* code best practice and style guide
+* Puppet/Perforce also has a styleguide, but it's lacking many details. Ours is an enhancement or addition
+---
+
+count: false
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* Style guide and coding best practices are important!
+
+  * Write down every discussion about it, document it!
+
+  * It's okay to update a style guide or revert a decission
+
+* Our styleguide: [voxpupuli.org/docs/reviewing_pr](https://voxpupuli.org/docs/reviewing_pr/)
+
+* Over time our guidelines got adopted by many companies and Puppet itself
+
+  * It's the defacto standard for the Puppet language
+
+* A styleguide brings more value if you can enforce it
+]
+
+???
+
+* Wouldnt it be nice if we could enforce this somehow? if we could verify if our code looks like the styleguide recommends it?
+
+---
+
+count: false
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* Style guide and coding best practices are important!
+
+  * Write down every discussion about it, document it!
+
+  * It's okay to update a style guide or revert a decission
+
+* Our styleguide: [voxpupuli.org/docs/reviewing_pr](https://voxpupuli.org/docs/reviewing_pr/)
+
+* Over time our guidelines got adopted by many companies and Puppet itself
+
+  * It's the defacto standard for the Puppet language
+
+* A styleguide brings more value if you can enforce it
+
+  * puppet-lint, rubocop, metadata-json-lint
+]
+
+???
+
+* linters!
+* metadata-json-lint for json, rubocop for ruby files, puppet-lint for puppet DSL
+* puppet-lint can be extended with plugins. one plugin for each specific entry in the styleguide
+
+* this makes reviews easier. as a contributor, you don't need to wait for feedback from us. there are tools that can tell you what's wrong. and in most cases how to fix it (autofix). People love that.
+
+---
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* A CI system is important!
+
+  * Provide feedback fast, reduce required review time
+]
+
+???
+
+* I still fix bugs in other projects and notice that they don't have any tests or linting
+---
+
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* A CI system is important!
+
+  * Provide feedback fast, reduce required review time
+
+* Use code annotations!
+]
+
+???
+
+* GitHub and GitLab support this. A linting/test tool can tell the CI system which line, which character violated a styleguide or broke a test
+---
 CI feedback
 code annotations
 ---
