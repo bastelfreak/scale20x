@@ -1190,7 +1190,31 @@ count: false
 * GitHub and GitLab support this. A linting/test tool can tell the CI system which line, which character violated a styleguide or broke a test
 ---
 
-count: false
+.left-column[
+## Vox Pupuli
+### What?
+### Who?
+### Why?
+### How?
+]
+
+.right-column[
+* A CI system is important!
+
+  * Provide feedback fast, reduce required review time
+
+* Use code annotations (RuboCop)!
+
+![img](rubocop.png)
+]
+
+???
+
+* example for rubocop. tells you the line, what kind of violation and a link to documentation
+* turns out people love that!
+* this enables people to work on their own most of the time, with a very short feedback loop
+
+---
 
 .left-column[
 ## Vox Pupuli
@@ -1205,17 +1229,21 @@ count: false
 
   * Provide feedback fast, reduce required review time
 
-* Use code annotations!
+* Use code annotations (RuboCop, puppet-lint)!
 
-![img](rubocop.png)
+![img](puppetlint.png)
 ]
 
 ???
 
-* example for rubocop. tells you the line, what kind of violation and a link to documentation
-* turns out people love that!
-* this enables people to work on their own most of the time, with a very short feedback loop
+* we have the same feature for puppet-lint
+* what does it say? missing docs?
+* Remember when I earlier talked about documentation in a project?
+* In the puppet ecosystem you can add some inline comments and a tool called puppet-strings can generate documentation
+* We check during each CI run if the REFERENCE.md is up2date
+
 ---
+
 CI feedback
 code annotations
 document CI so people can run it locally. make that easy
