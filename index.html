@@ -269,6 +269,8 @@ class: center, middle, inverseold
 
 * Vox Pupuli Project Management Committee member
 
+* Living in Cologne, Germany
+
 * Senior IT Automation Consultant at [betadots](https://betadots.de/)
 
 <a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
@@ -284,7 +286,7 @@ class: center, middle, inverse
 
 ???
 
-
+* Who knows Puppet or worked with it?
 ---
 
 .left-column[
@@ -372,7 +374,9 @@ count: false
 .right-column[
 example class to manage nginx:
 ```puppet
-class nginx {
+class nginx (
+  Sensitive[String[1]] $content,
+) {
   package { 'nginx':
     ensure => 'installed',
   }
@@ -392,8 +396,10 @@ class nginx {
 .footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
 
 ???
+
 * example class of three resources. A resources describes one specific thing on a system
 
+---
 .left-column[
 ## Puppet
 ### What?
@@ -410,7 +416,6 @@ class nginx {
 * Usually each Puppet Modules lives in its own Git(Hub) repository
 
 * A module is focussed on managing a specific software component
-```
 
 ]
 <a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
@@ -418,14 +423,42 @@ class nginx {
 
 ???
 
-* grouping resources based on software component makes modules exchangeable!
+* grouping resources based on software component makes modules exchangeable and composable!
+---
+class: center, middle, inverse
+
+# Who uses<br> open source software?
+
+???
+
+* easy question as a warm up
+---
+class: center, middle, inverse
+
+# Who wanted to<br> report a bug?
+
+???
+
+* Among this group, who wanted to report a bug or provide a patch?
+---
+class: center, middle, inverse
+
+# Who uses dead<br> open source software?
+
+???
+
+* While trying to report a bug, who noticed the project is maintained by a single person and dead since 3 years?
+
+You might guess where this is going
 ---
 class: center, middle, inverse
 
 # What's this<br/>  Vox Pupuli thingy?
 
 ???
+Now a question I will try to answer for you, what is vox pupuli
 
+* Who heard about it before?
 ---
 
 .left-column[
@@ -442,7 +475,8 @@ class: center, middle, inverse
 
 ???
 
-* 150 Puppet modules in 2021. 175 *active* modules at the moment
+Some stats. A group that:
+* 150 Puppet modules in 2021. 179 *active* modules at the moment
 * 43 Ruby Gems in 2021, 54 *active* gems at the moment
 ---
 
@@ -515,7 +549,14 @@ count: false
 .footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
 
 ???
+* new people are always welcome and it's easy to participate
+* usually interact via IRC or via GitHub issues and pull requests
+* Puppet/Perforce has a slack community. Our slack room is bridged with our IRC channel
+* technology: example conversation: Hey can I add gentoo support to a module? Or Arch Linux support?
 
+* domain specific experts
+
+* Any fellow Arch Linux friends here?
 ---
 
 count: false
@@ -573,6 +614,8 @@ count: false
 ???
 
 ---
+count: false
+
 .left-column[
 ## Vox Pupuli
 ### What?
@@ -599,9 +642,12 @@ count: false
 
 ???
 
+* We want to work together on modules
+* together we develop tooling to test our modules
 ---
 .left-column[
 ## Vox Pupuli
+### What?
 ### Who?
 ]
 
@@ -617,12 +663,14 @@ count: false
 ???
 
 * 2021: 161 members in the GitHub org with merge access
-* now: 186
+* now: 187
 
+* every dot marks a presentation about or related to vox pupuli
 ---
 
 .left-column[
 ## Vox Pupuli
+### What?
 ### Who?
 ]
 
@@ -643,6 +691,7 @@ count: false
 
 .left-column[
 ## Vox Pupuli
+### What?
 ### Who?
 ]
 
@@ -672,6 +721,7 @@ count: false
 
 .left-column[
 ## Vox Pupuli
+### What?
 ### Who?
 ]
 
@@ -684,7 +734,7 @@ count: false
 
   * Interested in learing RuboCop/puppet-lint/rspec-puppet/serverspec
 
-* DevOps/Platform Engineers in a small/tiny team
+* SRE/DevOps/Platform/Systems Engineers in a small/tiny team
 
   * Use Puppet at work and want to use public modules
 ]
@@ -702,6 +752,7 @@ count: false
 
 .left-column[
 ## Vox Pupuli
+### What?
 ### Who?
 ]
 
@@ -714,7 +765,7 @@ count: false
 
   * Interested in learing RuboCop/puppet-lint/rspec-puppet/serverspec
 
-* DevOps/Platform Engineers in a small/tiny team
+* SRE/DevOps/Platform/Systems Engineers in a small/tiny team
 
   * Use Puppet at work and want to use public modules
 
@@ -727,129 +778,34 @@ count: false
 ???
 
 * We provide letter of recognitions or kinda an employment reference
----
-class: center, middle, inverse
-
-# How to design<br/> a good Puppet module?
-
-???
-
-* who wrote open source software that's public on the internet?
-
-* Who wrote a puppet module (no matter public/private)?
-
-* Who published it to forge.puppet.com?
-
-* Anybody not using Puppet?
-
----
-
-.left-column[
-## Module Design
-### Status Quo
-]
-
-.right-column[
-
-* You write your own component Puppet modules
-
-  * A module that manages a single component (Apache *or* nginx)
-
-]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
-
-???
-
-* a component module manages a component of the infrastructure
-* a specific software
-* like nginx or mysql
----
-
-
-count: false
-
-.left-column[
-## Module Design
-### Status Quo
-]
-
-.right-column[
-
-* You write your own component Puppet modules
-
-  * A module that manages a single component (Apache *or* nginx)
-
-* You also want to reuse Open Source component modules from others
-
-  * Because there are already awesome modules for nginx
-
-]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
-
-???
-
-* reinventing the wheel is bad
-* using an existing module saves times
-* saving time saves money
-* VPs like saving money
-
----
-count: false
-
-.left-column[
-## Module Design
-### Status Quo
-]
-
-.right-column[
-
-* You write your own component Puppet modules
-
-  * A module that manages a single component (Apache *or* nginx)
-
-* You also want to reuse Open Source component modules from others
-
-  * Because there are already awesome modules for nginx
-
-* Many of your servers are very similar, but not identical
-]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
-
-???
-
-* all servers use your internal DNS resolver in /etc/resolv.conf
-* except for the DNS server itself, which forwards to cloudflare
 
 ---
 
 count: false
 
 .left-column[
-## Module Design
-### Status Quo
+## Vox Pupuli
+### What?
+### Who?
 ]
 
 .right-column[
+* Many git newbies
 
-* You write your own component Puppet modules
+ *  Rebasing a feature branch against upstream master is hard
 
-  * A module that manages a single component (Apache *or* nginx)
+* Many newcomers to test frameworks
 
-* You also want to reuse Open Source component modules from others
+  * Interested in learing RuboCop/puppet-lint/rspec-puppet/serverspec
 
-  * Because there are already awesome modules for nginx
+* SRE/DevOps/Platform/Systems Engineers in a small/tiny team
 
-* Many of your servers are very similar, but not identical
+  * Use Puppet at work and want to use public modules
 
-* Design requirement 1: Use internal and external component modules in parallel
+* Consultants that contribute to one/a few modules for a period of time
 
-* Design requirement 2: Assign those component modules to groups of servers
+* ~~Many administrators of legacy infrastructures~~
+
 ]
 
 <a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
@@ -857,164 +813,103 @@ count: false
 
 ???
 
+* people running outdated software/hardware is still a problem, but
+* At least in the Infrastructure as Code bubble it's getting better
+* Less requests to support RHEL 5/6 or ancient ruby versions
 
 ---
+
 .left-column[
-## Module Design
-### Status Quo
-### Roles & Profiles
+## Vox Pupuli
+### What?
+### Who?
+### Why?
 ]
 
 .right-column[
-.nowidth[![imagefoo](rapwoh.svg)]
+* Maintaining a (successful) FOSS project on your own is hard
 ]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
 
 ???
 
-* Who knows this pattern?
+* Who of you maintains a open source project
 
-* Who uses it?
 ---
 
+count: false
+
 .left-column[
-## Module Design
-### Status Quo
-### Roles & Profiles
-### Data vs Code
+## Vox Pupuli
+### What?
+### Who?
+### Why?
 ]
 
 .right-column[
-* People that write Puppet Code might not provide the data
+* Maintaining a (successful) FOSS project on your own is hard
+
+  * successful implies documentation
+
+* More users &rarr; more bugreports and feature requests
 ]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
-
-???
-
----
-.left-column[
-## Module Design
-### Status Quo
-### Roles & Profiles
-### Data vs Code
-]
-
-.right-column[
-* People that write Puppet Code might not provide the data
-
-* DevOps people want to use an external component module
-
-* platform engineers write Puppet code
-
-* network engineers provide ip addresses and firewall rules
-
-* Product owner provides version numbers for deployments
-
-]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
 
 ???
 
 ---
+
+count: false
+
 .left-column[
-## Module Design
-### Status Quo
-### Roles & Profiles
-### Data vs Code
+## Vox Pupuli
+### What?
+### Who?
+### Why?
 ]
 
 .right-column[
+* Maintaining a (successful) FOSS project on your own is hard
 
-* People that write Puppet Code might not provide the data
+  * successful implies documentation
 
-* DevOps people want to use an external component module
+* More users &rarr; more bugreports and feature requests
 
-* platform engineers write Puppet code
-
-* network engineers provide ip addresses and firewall rules
-
-* Product owner provides version numbers for deployments
-
-* Secrets should come from a secret store like Hashicorp Vault or hiera-eyaml
+* People loose interest, lack time, burnout
 ]
 
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
-
 ???
+
+* if a single person maintains a project: the more users you have the more likely it is to burn out
+* remember earlier when I asked about abandoned software?
 
 ---
+
+count: false
+
 .left-column[
-## Module Design
-### Status Quo
-### Roles & Profiles
-### Data vs Code
+## Vox Pupuli
+### What?
+### Who?
+### Why?
 ]
 
 .right-column[
+* Maintaining a (successful) FOSS project on your own is hard
 
-* People that write Puppet Code might not provide the data
+  * successful implies documentation
 
-* DevOps people want to use an external component module
+* More users &rarr; more bugreports and feature requests
 
-* platform engineers write Puppet code
+* People loose interest, lack time, burnout
 
-* network engineers provide ip addresses and firewall rules
+* Vox Pupuli wants to prevent this
 
-* Product owner provides version numbers for deployments
-
-* Secrets should come from a secret store like Hashicorp Vault or hiera-eyaml
-
-* Design requirement 3: Separate data and code
+  * with a big group of collaborators and efficient tooling
 ]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
 
 ???
 
----
-.left-column[
-## Module Design
-### Status Quo
-### Roles & Profiles
-### Data vs Code
-]
-
-.right-column[
-.nowidth[![imagefoo](rap.svg)]
-]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
-
-???
-
-* who knows hiera-eyaml
----
-.left-column[
-## Module Design
-### Status Quo
-### Roles & Profiles
-### Data vs Code
-]
-
-.right-column[
-* It's hard for enforce code design/architecture with CI jobs
-
-* You might leak private information if you publish an existing internal module
-]
-
-<a href='https://betadots.de' alt='company website betadots'><img src="logo-1181x1181.png" alt="drawing" style="position: fixed; bottom: 12px; left: 20px; width: 100px;"/></a>
-.footnote[[@bastelsblog](https://twitter.com/bastelsblog) for [@voxpupuliorg](https://twitter.com/voxpupuliorg)]
-
-???
+* if a single person maintains a project: the more users you have the more likely it is to burn out
+* remember earlier when I asked about abandoned software?
 
 ---
 .left-column[
